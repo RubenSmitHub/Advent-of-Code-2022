@@ -35,7 +35,7 @@ using (StringReader sr = new(FileContents))
     }
 
     bool IsOverlapping = false;
-    if (a.Overlaps(b))
+    if (a.Overlaps(b) | b.Overlaps(a))
     {
       TotalOverlaps++;
       IsOverlapping = true;

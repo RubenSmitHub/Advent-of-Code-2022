@@ -22,22 +22,28 @@ namespace Day_4
     {
       if (StartIndex >= r.StartIndex & StartIndex <= r.EndIndex)
       {
-        if (EndIndex >= r.StartIndex & EndIndex <= r.EndIndex)
-        {
-          return true;
-        }
+        return true;
       }
-      return false;
-    }
-
-    public bool DoNotOverlap(Range r)
-    {
-      if ((StartIndex < r.StartIndex | StartIndex > r.EndIndex)|
-        (EndIndex < r.StartIndex | EndIndex > r.EndIndex))
+      if (EndIndex >= r.StartIndex & EndIndex <= r.EndIndex)
       {
         return true;
       }
 
+
+      return false;
+
+    }
+
+    public bool DoNotOverlap(Range r)
+    {
+      if (StartIndex < r.StartIndex & EndIndex < r.StartIndex)
+      {
+        return true;
+      }
+      if (StartIndex > r.EndIndex & EndIndex > r.EndIndex)
+      {
+        return true;
+      }
       return false;
     }
   }
