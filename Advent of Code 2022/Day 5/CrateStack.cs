@@ -18,7 +18,7 @@ namespace Day_5
       RevStack.Index = stack.Index;
 
       //Reverse order of items in stack
-      foreach (string item in stack.Items)
+      while (stack.Items.Count > 0)
       {
         RevStack.Items.Push(stack.Items.Pop());
       }

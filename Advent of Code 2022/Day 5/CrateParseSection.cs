@@ -3,7 +3,6 @@
   public enum CrateParseSection
   {
     CrateStacks,
-    CorrectStackOrder,
     CrateMoveInstruction
   }
 }
