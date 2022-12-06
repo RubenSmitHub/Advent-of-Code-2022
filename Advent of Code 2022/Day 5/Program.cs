@@ -5,21 +5,17 @@ CrateFileParser parser = new CrateFileParser();
 
 parser.ReadFromFile("input.txt");
 
-for (int i = 0; i < parser.MoveInstructions.Count; i++)
-{
-  MoveInstruction instruction = parser.MoveInstructions[i];
+// SolvePart1();
+SolvePart2();
 
-  for (int j = 0; j < instruction.Amount; j++)
-  {
-    if (parser.Stacks == null) break;
-
-    parser.Stacks[instruction.ToIndex-1].Items.Push(parser.Stacks[instruction.FromIndex-1].Items.Pop());
-
-  }
-
-}
 
 PrintStackTops(parser.Stacks);
+
+
+
+
+
+
 
 void PrintStackTops(List<CrateStack>? stacks)
 {
@@ -37,3 +33,48 @@ void PrintStackTops(List<CrateStack>? stacks)
 }
 
 Console.WriteLine("end");
+
+void SolvePart1()
+{
+  for (int i = 0; i < parser.MoveInstructions.Count; i++)
+  {
+    MoveInstruction instruction = parser.MoveInstructions[i];
+
+    for (int j = 0; j < instruction.Amount; j++)
+    {
+      if (parser.Stacks == null) break;
+
+      // Part 1
+      parser.Stacks[instruction.ToIndex - 1].Items.Push(parser.Stacks[instruction.FromIndex - 1].Items.Pop());
+
+    }
+
+  }
+}
+
+void SolvePart2()
+{
+  for (int i = 0; i < parser.MoveInstructions.Count; i++)
+  {
+    MoveInstruction instruction = parser.MoveInstructions[i];
+
+    Stack<string> Crane = new Stack<string>();
+
+    for (int j = 0; j < instruction.Amount; j++)
+    {
+      if (parser.Stacks == null) break;
+
+      Crane.Push(parser.Stacks[instruction.FromIndex - 1].Items.Pop());
+
+    }
+    for (int j = 0; j < instruction.Amount; j++)
+    {
+      if (parser.Stacks == null) break;
+
+      parser.Stacks[instruction.ToIndex - 1].Items.Push(Crane.Pop());
+
+
+    }
+
+  }
+}
