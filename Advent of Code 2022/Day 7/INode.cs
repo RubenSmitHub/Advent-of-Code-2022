@@ -12,7 +12,7 @@ namespace Day_7
 
     public List<INode> Children { get; set; }
 
-    public List<File> Files { get; set; }
+    public List<ElfFile> Files { get; set; }
     
     public INode? Parent { get; set; }
 

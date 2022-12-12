@@ -1,14 +1,14 @@
 ﻿namespace Day_7
 {
-  public class Directory : INode
+  public class ElfDirectory : INode
   {
-    public Directory(INode parent, string name)
+    public ElfDirectory(INode parent, string name)
     {
       Parent = parent;
       Name = name;
     }
 
-    protected Directory(string name)
+    protected ElfDirectory(string name)
     {
       Name = name;
       Parent = null;
@@ -16,7 +16,7 @@
 
     public List<INode> Children { get; set; } = new List<INode>();
 
-    public List<File> Files { get; set; } = new List<File>();
+    public List<ElfFile> Files { get; set; } = new List<ElfFile>();
 
     public bool IsRead { get; set; }
 

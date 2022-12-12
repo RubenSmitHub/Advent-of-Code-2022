@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day_7
 {
-  public class File
+  public class ElfFile
   {
     public string Name { get; set; } = String.Empty;
 

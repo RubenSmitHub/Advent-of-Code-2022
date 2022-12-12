@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace Day_7
 {
-  public class RootDirectory : Directory
+  public class RootDirectory : ElfDirectory
   {
 
 
-    private static RootDirectory _root = new RootDirectory("/");
+    private static RootDirectory? _root;
 
     protected RootDirectory(string name) : base(name)
     {
     }
 
-    public static RootDirectory GetInstance() => _root;
+    public static RootDirectory GetInstance()
+    {
+      if (_root == null) _root = new RootDirectory("/");
+      return _root;
+    }
+
+
 
   }
 }
